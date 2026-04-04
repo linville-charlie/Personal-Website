@@ -197,6 +197,8 @@ a:hover {
   font-size: 1.2rem;
   color: #3d5225;
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
   background: #c5d9a8;
   border: 3px solid #6b8f3c;
   border-radius: 2px;
