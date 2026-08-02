@@ -1135,7 +1135,38 @@ a:hover {
   margin: 24px 0 10px;
 }
 
+.prose h4 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  line-height: 1.9;
+  color: #4c6630;
+  margin: 20px 0 8px;
+}
+
 .prose strong { color: #2d4518; }
+
+/* Image captions rendered as a lone italic paragraph after a figure */
+.prose p > em:only-child {
+  display: block;
+  font-size: 0.98rem;
+  color: #4c6630;
+  margin-top: -8px;
+}
+
+.prose hr {
+  border: none;
+  height: 4px;
+  max-width: 320px;
+  margin: 30px auto;
+  background: repeating-linear-gradient(
+    90deg,
+    #6b8f3c 0px, #6b8f3c 8px,
+    #8baf5c 8px, #8baf5c 16px,
+    #3e6524 16px, #3e6524 24px,
+    transparent 24px, transparent 32px
+  );
+  image-rendering: pixelated;
+}
 
 .prose a {
   border-bottom: 2px solid #6b8f3c;
