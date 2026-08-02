@@ -1145,12 +1145,16 @@ a:hover {
 
 .prose strong { color: #2d4518; }
 
-/* Image captions rendered as a lone italic paragraph after a figure */
-.prose p > em:only-child {
+/* Image captions. Explicit class — an earlier `p > em:only-child` rule was
+   wrong because :only-child ignores text nodes, so it also matched ordinary
+   paragraphs containing a single emphasised word. */
+.img-caption {
   display: block;
   font-size: 0.98rem;
+  font-style: italic;
   color: #4c6630;
-  margin-top: -8px;
+  margin-top: -10px;
+  margin-bottom: 4px;
 }
 
 .prose hr {
