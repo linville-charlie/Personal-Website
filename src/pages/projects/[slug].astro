@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import TechTags from '../../components/TechTags.astro';
+import { getCollection, render } from 'astro:content';
+import { SITE, PERSON_ID } from '../../consts';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+const path = `/projects/${project.id}`;
+
+// Meta descriptions get truncated by search engines around 160 chars; the
+// full text still renders on the page.
+const metaDescription =
+  d.description.length > 158 ? d.description.slice(0, 155).trimEnd() + '…' : d.description;
+
+const schema = [
+  {
+    '@type': 'SoftwareSourceCode',
+    '@id': `${SITE.url}${path}#project`,
+    name: d.title,
+    description: d.description,
+    url: `${SITE.url}${path}`,
+    ...(d.repo ? { codeRepository: d.repo } : {}),
+    ...(d.tags.length ? { programmingLanguage: d.tags } : {}),
+    author: { '@id': PERSON_ID },
+    creator: { '@id': PERSON_ID },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE.url}/projects` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: `${SITE.url}${path}` },
+    ],
+  },
+];
+---
+
+<Base path={path} title={`${d.title} — Charlie Linville`} description={metaDescription} schema={schema}>
+  <article class="page-section">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span> <a href="/projects">Projects</a>
+      </nav>
+
+      <h1 class="page-title">{d.title}</h1>
+      <span class="project-year">{d.year}</span>
+
+      <TechTags tags={d.tags} />
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      {(d.repo || d.url) && (
+        <p class="project-links">
+          {d.repo && <a href={d.repo} target="_blank" rel="noopener">View source &rarr;</a>}
+          {d.url && <a href={d.url} target="_blank" rel="noopener">Visit site &rarr;</a>}
+        </p>
+      )}
+
+      <p class="section-more"><a href="/projects">&larr; All projects</a></p>
+    </div>
+  </article>
+</Base>

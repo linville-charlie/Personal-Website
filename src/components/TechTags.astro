@@ -1,0 +1,12 @@
+---
+export interface Props {
+  tags: readonly string[];
+  accent?: boolean;
+}
+const { tags, accent = false } = Astro.props;
+---
+{tags.length > 0 && (
+  <div class={accent ? 'tech-tags accent' : 'tech-tags'}>
+    {tags.map((t) => <span>{t}</span>)}
+  </div>
+)}

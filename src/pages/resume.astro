@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import TechTags from '../components/TechTags.astro';
+import { TIMELINE, EDUCATION, SKILLS } from '../data/site';
+import { SITE, PERSON_ID } from '../consts';
+
+// Roles worth listing as employment, in resume order.
+const EXPERIENCE = TIMELINE.filter((e) =>
+  ['Updraft', 'Guleki', 'Agori', 'SC Sports', 'Backpack Society'].some((n) => e.role.includes(n))
+);
+const LEADERSHIP = TIMELINE.filter((e) => !EXPERIENCE.includes(e));
+
+const schema = [
+  {
+    '@type': 'ProfilePage',
+    '@id': `${SITE.url}/resume#page`,
+    name: 'Charlie Linville — Resume',
+    url: `${SITE.url}/resume`,
+    mainEntity: { '@id': PERSON_ID },
+  },
+];
+---
+
+<Base
+  path="/resume"
+  title="Charlie Linville — Resume"
+  description="Resume of Charlie Linville: AI engineer and co-founder of Updraft Consulting, studying Applied Math, Engineering & Physics at UW-Madison."
+  schema={schema}
+>
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">Resume</h1>
+      <p class="page-intro">
+        Charlie Linville &middot; Denver, CO &middot;
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </p>
+
+      <h2 class="subsection-title">Education</h2>
+      {EDUCATION.map((e) => (
+        <div class="project-card">
+          <h3>{e.title}</h3>
+          <span class="project-year">{e.year}</span>
+          <p>{e.desc}</p>
+        </div>
+      ))}
+
+      <h2 class="subsection-title">Experience</h2>
+      {EXPERIENCE.map((e) => (
+        <div class="project-card">
+          <h3>{e.role}</h3>
+          <span class="project-year">{e.date}</span>
+          <p>{e.body}</p>
+          {e.badgeLabel && (
+            <div class="achievement-badge">
+              <span class="badge-icon">{e.badgeIcon}</span>
+              <span class="badge-label">{e.badgeLabel}</span>
+            </div>
+          )}
+        </div>
+      ))}
+
+      <h2 class="subsection-title">Projects &amp; Leadership</h2>
+      {LEADERSHIP.map((e) => (
+        <div class="project-card">
+          <h3>{e.role}</h3>
+          <span class="project-year">{e.date}</span>
+          <p>{e.body}</p>
+          {e.badgeLabel && (
+            <div class="achievement-badge">
+              <span class="badge-icon">{e.badgeIcon}</span>
+              <span class="badge-label">{e.badgeLabel}</span>
+            </div>
+          )}
+        </div>
+      ))}
+      <p class="section-more"><a href="/projects">Full project list &rarr;</a></p>
+
+      <h2 class="subsection-title">Skills</h2>
+      {SKILLS.map((g) => (
+        <div class="skill-group">
+          <h3>{g.name}</h3>
+          <TechTags tags={g.items} accent={g.accent} />
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

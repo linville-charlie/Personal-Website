@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import Socials from '../components/Socials.astro';
+import { SITE, PERSON_ID, WIKIDATA_ID } from '../consts';
+
+const FAQ = [
+  {
+    q: 'What does Charlie Linville do?',
+    a: 'Charlie Linville is a co-founder of Updraft Consulting, an AI consulting firm working with clients in mortgage and healthcare staffing, and the founder of Guleki, an app publisher building AI-native mobile products. He also builds AI agents, quantitative trading systems, and security tooling.',
+  },
+  {
+    q: 'Where is Charlie Linville based?',
+    a: 'Denver, Colorado. He studies Applied Mathematics, Engineering & Physics at the University of Wisconsin–Madison and spent a semester abroad at the University of New South Wales in Sydney, Australia.',
+  },
+  {
+    q: 'What is Charlie Linville building right now?',
+    a: 'Updraft Consulting, Guleki, and Sizzle Roasting Software — a platform that runs a coffee roastery end to end with closed-loop machine control and AI roast coaching.',
+  },
+  {
+    q: 'How can I contact Charlie Linville?',
+    a: `By email at ${SITE.email}, or through LinkedIn, GitHub, or X.`,
+  },
+];
+
+const schema = [
+  {
+    '@type': 'AboutPage',
+    '@id': `${SITE.url}/about#page`,
+    name: 'About Charlie Linville',
+    url: `${SITE.url}/about`,
+    mainEntity: { '@id': PERSON_ID },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${SITE.url}/about#faq`,
+    mainEntity: FAQ.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+
+<Base
+  path="/about"
+  title="About Charlie Linville — AI Engineer & Founder in Denver, Colorado"
+  description="Charlie Linville is an AI engineer and co-founder of Updraft Consulting, based in Denver, Colorado, studying Applied Math, Engineering & Physics at UW-Madison."
+  schema={schema}
+>
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">About Charlie Linville</h1>
+
+      <div class="prose">
+        <p class="lede">
+          I'm Charlie Linville — an AI engineer and founder based in Denver, Colorado,
+          studying Applied Mathematics, Engineering &amp; Physics at the University of
+          Wisconsin–Madison. I build AI systems and the businesses around them.
+        </p>
+
+        <h2>What I'm working on</h2>
+
+        <p>
+          I co-founded <strong>Updraft Consulting</strong> in June 2026, an AI consulting
+          firm with paying clients in mortgage and healthcare staffing. My work there spans
+          both engineering and sales: I architected seven AI workflows for a mortgage
+          brokerage — everything from contract date extraction through refinance targeting —
+          and built a GLBA-aligned data-handling framework that classifies client data by
+          sensitivity and maps each class to an approved processing environment. Regulated
+          industries can't adopt AI without that groundwork, and most consultancies skip it.
+          I also co-lead sales, scoping and pitching engagements to presidents and review
+          committees at firms up to $1B in revenue, and I've run live AI training for 34
+          professionals — every person surveyed left with a workflow they could actually use,
+          and 83% asked to expand the engagement.
+        </p>
+
+        <p>
+          I'm also the founder of <strong>Guleki</strong>, an app publishing company focused
+          on AI-native mobile experiences. Our first product, Geolocate Me, gives AI
+          assistants real-time location context through a private GPS tracker with Model
+          Context Protocol integration. It's live on both iOS and Android.
+        </p>
+
+        <p>
+          Most recently I've been building <strong>Sizzle Roasting Software</strong>, which
+          runs a coffee roastery end to end — bean inventory and costs, live machine control,
+          and AI roast coaching. It steers the roaster automatically to hit a target
+          temperature curve, predicts how a batch will taste from its roast data, and listens
+          for first crack through a microphone, retraining itself on each machine's own audio.
+          A 47-tool agent built on Strands and LangChain runs local models on an NVIDIA Jetson
+          to keep coaching responses under eight seconds.
+        </p>
+
+        <h2>Before this</h2>
+
+        <p>
+          From September 2025 to March 2026 I was co-founder and technical lead
+          at <strong>Agori</strong>, an early-stage fintech startup. I architected and shipped a
+          real-time quantitative paper trading platform in fourteen weeks using AI-native
+          development workflows, then deployed it for a trading competition run with Old
+          Mission Capital at the University of Michigan. I owned AWS infrastructure, security,
+          developer tooling, and CI/CD, recruited four team members, managed three direct
+          reports, and supported an angel raise while leading product strategy.
+        </p>
+
+        <p>
+          Before Agori I consulted for <strong>SC Sports</strong>, where I built the auction
+          pricing system behind two live deployments — 2,800 lots priced, each converted into
+          a max-bid recommendation against an ROI target, with buyer's fees and bid multipliers
+          encoded for eighteen different auction houses. Earlier, from 2023 to 2024, I worked
+          with <strong>Backpack Society</strong>, a nonprofit serving more than 70 schools
+          supporting kids in unstable food situations. I architected and pitched a systems
+          overhaul, won funding from the leadership team, rebuilt the organization's website on
+          AWS at 45% lower cost, and advised the board on technology selection and budgeting.
+        </p>
+
+        <p>
+          My technical roots go back further than that. From 2020 to 2024 I competed
+          in <strong>CyberPatriot</strong>, the national cybersecurity competition run by the
+          Air Force Association, leading Cisco networking for my school's team and finishing 12th
+          nationally against more than 5,000 teams.
+        </p>
+
+        <h2>School and research</h2>
+
+        <p>
+          I'm pursuing a BS in Applied Mathematics, Engineering &amp; Physics (AMEP) at
+          UW–Madison, graduating in 2028, with coursework in Modern Physics, Numerical Linear
+          Algebra, Mathematical Computing, and Philosophy of AI. I spent the first half of 2026
+          studying abroad at the University of New South Wales in Sydney, Australia.
+        </p>
+
+        <p>
+          Outside of coursework I'm part of the Wisconsin Quantum Computing Club, where I
+          competed in the 2024 IBM Fall Fest hackathon and took home both Community Favorite
+          and First to Finish. I've simulated neutral-atom qubits in QuTiP, built time-dependent
+          Hamiltonians for ground-to-Rydberg drives, and trained a neural network that detects
+          local and non-local errors in a 12-qubit system at 95%+ accuracy. From October 2024
+          through December 2025 I served as a Member At-Large on the UW–Madison Vice Chancellor
+          for Finance &amp; Administration Study Group, selected through the Associated Students
+          of Madison shared governance process, advising senior university leadership on food
+          security, budget model changes, and renewable energy.
+        </p>
+
+        <h2>How I work</h2>
+
+        <p>
+          The thread running through all of it is systems: figuring out how the pieces fit,
+          where the leverage is, and what actually has to be built versus what merely sounds
+          impressive. I lean heavily on AI-native development workflows, which is how a
+          fourteen-week production trading platform was possible at all. I care about shipping
+          things that survive contact with real users and real regulators.
+        </p>
+
+        <p>
+          When I'm not building, I'm roasting coffee — which is how Sizzle started — watching
+          Formula 1 for the engineering as much as the racing, training for longevity, and
+          reading.
+        </p>
+
+        <h2>Common questions</h2>
+
+        <dl class="faq">
+          {FAQ.map((f) => (
+            <>
+              <dt>{f.q}</dt>
+              <dd>{f.a}</dd>
+            </>
+          ))}
+        </dl>
+
+        <h2>Elsewhere</h2>
+        <Socials />
+
+        <p class="meta-note">
+          This is the Charlie Linville who builds AI systems — catalogued on Wikidata
+          as <a href={`https://www.wikidata.org/wiki/${WIKIDATA_ID}`} target="_blank" rel="noopener">{WIKIDATA_ID}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
