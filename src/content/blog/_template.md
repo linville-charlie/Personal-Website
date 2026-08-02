@@ -5,8 +5,8 @@ pubDate: 2026-08-02
 # updatedDate: 2026-09-01
 tags: ["AI", "agents"]
 draft: true
-# Fill these in AFTER you syndicate. They are outbound pointers only —
-# this page stays canonical, which is the entire point of publishing here first.
+# Fill these in AFTER you syndicate. Outbound pointers only — this page is
+# the canonical home, which is the entire point of publishing here first.
 # substackUrl: "https://clinville.substack.com/p/your-post"
 # xUrl: "https://x.com/CharlieLinvill2/status/..."
 ---
@@ -32,5 +32,13 @@ def hello():
 
 1. Set `draft: false`
 2. Deploy, and confirm the post is live at `/blog/<filename>`
-3. Cross-post to Substack, setting Substack's canonical URL to the URL above
-4. Come back and fill in `substackUrl`
+3. Wait for Google to crawl it — check Search Console, usually a day or two.
+   Publishing here first is what establishes this page as the original.
+4. Post an **excerpt** to Substack — roughly the first 150–250 words — ending
+   with a link back to the full post here.
+
+   Do NOT paste the full text into Substack. Substack hardcodes its own
+   `rel="canonical"` and gives you no way to point it at this site, so a full
+   copy there becomes a duplicate that outranks this page on the strength of
+   Substack's domain. An excerpt has nothing to deduplicate against.
+5. Come back and fill in `substackUrl`
