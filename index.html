@@ -3,17 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Charlie Linville</title>
-  <meta name="description" content="Charlie Linville — Founder. Builder. AI and quantitative systems..">
-  <meta property="og:title" content="Charlie Linville">
-  <meta property="og:description" content="Founder. Builder. AI and quantitative systems..">
+  <title>Charlie Linville — AI Engineer, Founder & Quantitative Systems Builder</title>
+  <meta name="description" content="Charlie Linville is a founder, AI engineer, and applied math student at UW-Madison building AI agents, quantitative trading systems, and production software for real clients.">
+  <meta name="author" content="Charlie Linville">
+  <link rel="canonical" href="https://charlielinville.me/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Charlie Linville — AI Engineer, Founder & Quantitative Systems Builder">
+  <meta property="og:description" content="Founder, AI engineer, and applied math student building AI agents, quantitative trading systems, and production software for real clients.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://charlielinville.me/">
+  <meta property="og:image" content="https://charlielinville.me/assets/og-image.png">
+  <meta property="og:site_name" content="Charlie Linville">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@CharlieLinvill2">
+  <meta name="twitter:title" content="Charlie Linville — AI Engineer, Founder & Quantitative Systems">
+  <meta name="twitter:description" content="Founder, AI engineer, and applied math student building AI agents, quantitative trading systems, and production software for real clients.">
+  <meta name="twitter:image" content="https://charlielinville.me/assets/og-image.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Charlie Linville",
+        "url": "https://charlielinville.me/"
+      },
+      {
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Charlie Linville",
+          "url": "https://charlielinville.me/",
+          "jobTitle": "Co-Founder & AI Engineer",
+          "description": "Founder, AI engineer, and applied math student at UW-Madison building AI agents, quantitative trading systems, and production software for real clients.",
+          "email": "charlie@benlaura.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Denver",
+            "addressRegion": "CO",
+            "addressCountry": "US"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Wisconsin-Madison"
+          },
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q139267651",
+            "https://linkedin.com/in/charlie-linville",
+            "https://github.com/linville-charlie",
+            "https://clinville.substack.com/",
+            "https://x.com/CharlieLinvill2"
+          ],
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "Wikidata",
+            "value": "Q139267651",
+            "url": "https://www.wikidata.org/wiki/Q139267651"
+          },
+          "knowsAbout": ["Artificial Intelligence", "AI Consulting", "Agentic AI Systems", "Quantitative Trading", "Machine Learning", "Quantum Computing", "Systems Architecture"],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Updraft Consulting"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="fonts/press-start-2p.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/vt323.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="scroll-indicator"></div>
+
+<!-- Navigation -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Top of page">CL</a>
+    <div class="nav-links">
+      <a href="#journey">Journey</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#writing">Writing</a>
+    </div>
+  </div>
+</nav>
+
+<main>
 
 <!-- Header -->
 <header class="header">
@@ -24,7 +111,7 @@
       </div>
       <div class="header-text">
         <h1>Charlie Linville</h1>
-        <p class="tagline">Founder. Builder. AI and quantitative systems.</p>
+        <p class="tagline">Founder & Builder — AI & Quantitative Systems</p>
         <div class="social-links">
           <a href="https://linkedin.com/in/charlie-linville" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -50,7 +137,7 @@
 <!-- Bio -->
 <section class="bio">
   <div class="container">
-    <p>I'm an Applied Math, Engineering, and Physics student at the University of Wisconsin–Madison keeping busy across AI, algorithmic trading systems, and building products. I previously co-founded a fintech startup, where I helped ship a production quantitative paper trading competition platform. Outside of work, I'm usually reading papers, making coffee, or watching F1.</p>
+    <p>Right now I'm building AI systems and the businesses around them — an AI consulting firm with clients in mortgage and healthcare, an app publisher shipping location-aware assistants, and software that runs a coffee roastery end to end. Co-founded a fintech startup before that and shipped its trading platform in 14 weeks. When I'm not shipping, I'm usually reading, roasting coffee, or watching F1.</p>
   </div>
 </section>
 
@@ -74,16 +161,46 @@
     <div class="particle" style="top:90%;left:5%;animation-delay:-8s;animation-duration:23s;"></div>
 
     <div class="timeline-entries">
-    <!-- Entry 1: Agori -->
+    <!-- Entry 0: Updraft Consulting -->
+    <div class="timeline-entry era-current" data-year="2026">
+      <div class="timeline-node">
+        <div class="node-ring"></div>
+        <div class="node-dot"></div>
+      </div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jun 2026 — Present</span>
+        <h3>Co-Founder at Updraft Consulting</h3>
+        <p>AI consulting firm with paying clients in mortgage and healthcare staffing. Architected seven AI workflows for a mortgage brokerage, from contract date extraction to refinance targeting, and built a GLBA-aligned data-handling framework classifying client data by sensitivity and approved processing environments. Co-lead sales — scoping and pitching engagements to presidents and review committees at firms up to $1B in revenue.</p>
+        <div class="achievement-badge">
+          <span class="badge-icon">&#9889;</span>
+          <span class="badge-label">34 professionals trained — 83% requested more</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry 1: Guleki -->
+    <div class="timeline-entry era-current" data-year="2026">
+      <div class="timeline-node">
+        <div class="node-ring"></div>
+        <div class="node-dot"></div>
+      </div>
+      <div class="timeline-card">
+        <span class="timeline-date">2026 — Present</span>
+        <h3><a href="https://guleki.com" target="_blank" rel="noopener">Founder at Guleki</a></h3>
+        <p>App publishing company focused on AI-native mobile experiences. Our first product, Geolocate Me, gives AI assistants real-time location context through a private GPS tracker with MCP integration — live on iOS and Android.</p>
+      </div>
+    </div>
+
+    <!-- Entry 2: Agori -->
     <div class="timeline-entry era-career" data-year="2025">
       <div class="timeline-node">
         <div class="node-ring"></div>
         <div class="node-dot"></div>
       </div>
       <div class="timeline-card">
-        <span class="timeline-date">2025 — 2026</span>
-        <h3>CIO & Co-Founder at Agori</h3>
-        <p>Led company strategy across technology, product, partnerships, fundraising, hiring, and operations at an early-stage fintech startup in Madison, WI. Architected and deployed Agori's production platform — an end-to-end system powering real-time quantitative paper trading competitions. Managed an 18-system tech stack including AWS, GitHub CI/CD, and a $12k vendor contract. Hired 4 and managed 3, including an engineer.</p>
+        <span class="timeline-date">Sep 2025 — Mar 2026</span>
+        <h3>Co-Founder & Technical Lead at Agori</h3>
+        <p>Early-stage fintech startup. Architected and shipped a real-time quantitative paper trading platform in 14 weeks using AI-native development workflows, then deployed it for a trading competition run with Old Mission Capital at the University of Michigan. Owned AWS infrastructure, security, developer tooling, and GitHub CI/CD. Recruited 4 team members and managed 3 reports while leading product strategy and supporting an angel raise.</p>
         <div class="achievement-badge">
           <span class="badge-icon">&#9889;</span>
           <span class="badge-label">Production platform shipped in 14 weeks</span>
@@ -91,7 +208,24 @@
       </div>
     </div>
 
-    <!-- Entry 2: Quantum Computing Club -->
+    <!-- Entry 3: SC Sports -->
+    <div class="timeline-entry era-career" data-year="2025">
+      <div class="timeline-node">
+        <div class="node-ring"></div>
+        <div class="node-dot"></div>
+      </div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jun 2025 — Sep 2025</span>
+        <h3>Technology Consultant — SC Sports</h3>
+        <p>Built the auction pricing system behind two live deployments, converting each lot into a max-bid recommendation against an ROI target. Encoded buyer's fees and bid multipliers for 18 auction houses so recommendations reflected true landed cost.</p>
+        <div class="achievement-badge">
+          <span class="badge-icon">&#9889;</span>
+          <span class="badge-label">2,800 lots priced across two deployments</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry 4: Quantum Computing Club -->
     <div class="timeline-entry era-college" data-year="2024">
       <div class="timeline-node">
         <div class="node-ring"></div>
@@ -100,7 +234,7 @@
       <div class="timeline-card">
         <span class="timeline-date">2024 — Present</span>
         <h3>Wisconsin Quantum Computing Club</h3>
-        <p>Active member participating in seminars on quantum computing and quantum information. Competed in the 2024 IBM Fall Fest hackathon.</p>
+        <p>Participating in seminars on quantum computing and quantum information. Competed in the 2024 IBM Fall Fest hackathon.</p>
         <div class="achievement-badge">
           <span class="badge-icon">&#127942;</span>
           <span class="badge-label">IBM Fall Fest — Community Favorite + First to Finish</span>
@@ -108,7 +242,7 @@
       </div>
     </div>
 
-    <!-- Entry 3: Vice Chancellor Study Group -->
+    <!-- Entry 5: Vice Chancellor Study Group -->
     <div class="timeline-entry era-college" data-year="2024">
       <div class="timeline-node">
         <div class="node-ring"></div>
@@ -116,25 +250,29 @@
       </div>
       <div class="timeline-card">
         <span class="timeline-date">Oct 2024 — Dec 2025</span>
-        <h3>UW-Madison Vice Chancellor Study Group</h3>
-        <p>Selected through ASM Shared Governance to represent students. Collaborated monthly with the Vice Chancellor for Finance and Administration and university stakeholders on finance and administration topics.</p>
+        <h3>Member At-Large — UW-Madison Vice Chancellor Study Group</h3>
+        <p>Selected through the Associated Students of Madison (ASM) Shared Governance process to represent the student body. Advised the Vice Chancellor for Finance and Administration and senior leaders monthly on food security, budget model changes, and renewable energy initiatives.</p>
       </div>
     </div>
 
-    <!-- Entry 4: Backpack Society -->
+    <!-- Entry 6: Backpack Society -->
     <div class="timeline-entry era-career" data-year="2023">
       <div class="timeline-node">
         <div class="node-ring"></div>
         <div class="node-dot"></div>
       </div>
       <div class="timeline-card">
-        <span class="timeline-date">2023 — 2024</span>
-        <h3>Technology Improvement Consultant — Backpack Society</h3>
-        <p>Architected a system solution and proposal to modernize the website, communication, and storage for a nonprofit supporting 70+ schools with kids in unstable food situations. After board approval, managed budget and infrastructure improvements. Reported to the board of directors as a special advisor.</p>
+        <span class="timeline-date">Mar 2023 — Jul 2024</span>
+        <h3>Technology Consultant — Backpack Society</h3>
+        <p>Architected and pitched a systems overhaul for a nonprofit serving 70+ schools with kids in unstable food situations, winning funding from the leadership team. Designed and built the organization's new website on AWS, then advised the board on technology selection, implementation tradeoffs, and budget requests.</p>
+        <div class="achievement-badge">
+          <span class="badge-icon">&#9889;</span>
+          <span class="badge-label">45% infrastructure cost reduction</span>
+        </div>
       </div>
     </div>
 
-    <!-- Entry 5: Cyberpatriots -->
+    <!-- Entry 7: Cyberpatriots -->
     <div class="timeline-entry era-highschool" data-year="2020">
       <div class="timeline-node">
         <div class="node-ring"></div>
@@ -159,14 +297,14 @@
 <hr class="divider">
 
 <!-- Education -->
-<section class="education">
+<section id="education" class="education">
   <div class="container">
     <h2 class="section-title">Education</h2>
 
     <div class="project-card">
       <h3>University of Wisconsin-Madison</h3>
-      <span class="project-year">2024 — 2028</span>
-      <p>BS in Applied Math, Engineering, and Physics (AMEP). Coursework spanning Modern Physics, Linear Algebra, Calculus, Chemistry, and Programming.</p>
+      <span class="project-year">Sep 2024 — May 2028</span>
+      <p>BS in Applied Mathematics, Engineering &amp; Physics (AMEP). Coursework spanning Modern Physics, Numerical Linear Algebra, Mathematical Computing, and Philosophy of AI.</p>
     </div>
 
     <div class="project-card">
@@ -180,7 +318,7 @@
 <hr class="divider">
 
 <!-- Projects -->
-<section class="projects">
+<section id="projects" class="projects">
   <div class="container">
     <h2 class="section-title">Projects</h2>
 
@@ -194,36 +332,18 @@
     </div>
 
     <div class="project-card">
-      <h3><a href="https://www.vectale.com" target="_blank" rel="noopener">Vectale</a></h3>
-      <span class="project-year">2026</span>
-      <p>Built a multi-tenant SaaS platform for content creators to manage and deliver branded content to subscribers. Creators get a white-label portal with courses, news, links, and custom pages — all behind tiered subscriptions powered by Stripe Connect. Architected the full stack from domain routing and data isolation to CI/CD pipelines deploying across staging and production on DigitalOcean.</p>
+      <h3>Sizzle Roasting Software</h3>
+      <span class="project-year">2026 — Present</span>
+      <p>Built a platform that runs a coffee roastery end to end: bean inventory and costs, live machine control, and AI roast coaching. Designed closed-loop software that automatically steers the roaster to hit a target temperature curve, validated against a physics simulator. Trained a model to predict how a batch will taste from its roast data, then search for the profile with the best predicted flavor. Built a system that hears the beans crack through a microphone and retrains itself on that machine's own audio. A 47-tool agent on Strands and LangChain runs local models on an NVIDIA Jetson to keep coaching under 8 seconds.</p>
       <div class="tech-tags">
-        <span>React</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Stripe Connect</span><span>Caddy</span><span>Terraform</span><span>Docker</span><span>GitHub Actions</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h3><a href="https://github.com/linville-charlie/Tennis-Alpha-Finder" target="_blank" rel="noopener">Tennis Alpha Finder</a></h3>
-      <span class="project-year">2026</span>
-      <p>Built a quantitative in-play tennis betting system that exploits systematic mispricing on Kalshi. Developed a Markov chain match model trained on 10,972 professional matches to compute fair-value probabilities. Implemented a live trading bot with dual score providers, Kelly criterion sizing, and full backtesting infrastructure. Achieved an 85.5% win rate across 152 paper trades.</p>
-      <div class="tech-tags">
-        <span>Python</span><span>Kalshi API</span><span>Markov Chains</span><span>NumPy</span><span>Pandas</span><span>asyncio</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h3><a href="https://github.com/linville-charlie/Auto-Influencer" target="_blank" rel="noopener">Auto-Influencer</a></h3>
-      <span class="project-year">2026</span>
-      <p>Built a multi-account X (Twitter) content automation platform. Ingests articles from 650+ RSS feeds and Feedly, generates persona-tailored tweets and threads with Claude, and supports interactive CLI review before scheduling posts natively through the X API. Tracks every post with rich analytics metadata for performance analysis.</p>
-      <div class="tech-tags">
-        <span>Python</span><span>Claude API</span><span>X API</span><span>Feedly</span><span>Click</span><span>YAML</span>
+        <span>Python</span><span>Strands</span><span>LangChain</span><span>PyTorch</span><span>NVIDIA Jetson</span><span>Local LLM Inference</span><span>Audio ML</span><span>Control Systems</span>
       </div>
     </div>
 
     <div class="project-card">
       <h3>AI Powered Auction Arbitrage Agent</h3>
       <span class="project-year">2025</span>
-      <p>Designed and deployed a system that aggregates and evaluates purchasing opportunities in auction markets. Uses a Python analytics pipeline to ingest listings, then performs GPU-accelerated OCR/computer vision and ML matching with an embedding engine to get market comps from a range of marketplaces. Persists results in AWS (DynamoDB, S3) for back testing and future neural network training.</p>
+      <p>Designed and deployed a system that prices auction lots and converts each into a max-bid recommendation against an ROI target — 2,800 lots across two live deployments. A Python pipeline ingests listings and resolves market comps through a three-source confidence-weighted lookup, with entity matching on unstructured lot titles handled by GPU-accelerated OCR and an embedding engine. Encodes buyer's fees and bid multipliers for 18 auction houses, and persists results in AWS (DynamoDB, S3) for backtesting and future model training.</p>
       <div class="tech-tags">
         <span>Python</span><span>Selenium</span><span>EasyOCR</span><span>OpenCV</span><span>eBay API</span><span>S3</span><span>DynamoDB</span><span>NumPy</span><span>Pandas</span><span>OpenAI API</span>
       </div>
@@ -235,24 +355,6 @@
       <p>Built an automated evolution system that improves Claude Code agents using genetic algorithms. Treats agent prompts as a population of candidates, tests them against programming benchmarks, scores them with a multi-persona jury of specialized evaluators, and breeds the next generation through crossover and mutation. Runs unattended overnight with checkpoint/resume support.</p>
       <div class="tech-tags">
         <span>Python</span><span>Claude Code</span><span>SQLite</span><span>Typer</span><span>Rich</span><span>Genetic Algorithms</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h3><a href="https://github.com/linville-charlie/Idea-Gen-Engine" target="_blank" rel="noopener">Idea Generation Engine</a></h3>
-      <span class="project-year">2025</span>
-      <p>Built an AI-powered market opportunity discovery engine that processes 650+ RSS feeds across 26 categories and 10 geographic regions. Clusters articles by content similarity using TF-IDF and DBSCAN, then surfaces emerging opportunities using a local 20B-parameter LLM. Runs entirely on local hardware at under $10/month.</p>
-      <div class="tech-tags">
-        <span>Python</span><span>Ollama</span><span>Flask</span><span>SQLite</span><span>scikit-learn</span><span>asyncio</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h3>Quantum Error Correction Project</h3>
-      <span class="project-year">2025</span>
-      <p>Developed a novel method of detecting a wide range of local and non-local errors in a quantum computer. Generated and labeled 1 million+ simulation runs for neural network training. Trained a neural network to consistently detect at least 95% of errors in a 12-qubit system.</p>
-      <div class="tech-tags">
-        <span>Python</span><span>Jupyter</span><span>QuTiP</span><span>Matplotlib</span><span>NumPy</span><span>PyTorch</span><span>PyTorch Geometric</span>
       </div>
     </div>
 
@@ -274,40 +376,60 @@
       </div>
     </div>
 
+    <h3 class="subsection-title">Also Built</h3>
+
+    <div class="also-built-grid">
+      <div class="also-built-card">
+        <h3><a href="https://github.com/linville-charlie/Tennis-Alpha-Finder" target="_blank" rel="noopener">Tennis Alpha Finder</a></h3>
+        <p>Quantitative in-play tennis betting system exploiting systematic mispricing on Kalshi. Markov chain model trained on 10,972 matches. 85.5% win rate across 152 paper trades.</p>
+      </div>
+      <div class="also-built-card">
+        <h3><a href="https://github.com/linville-charlie/Auto-Influencer" target="_blank" rel="noopener">Auto-Influencer</a></h3>
+        <p>Multi-account X content automation platform. Ingests 650+ RSS feeds, generates persona-tailored posts with Claude, and schedules natively through the X API.</p>
+      </div>
+      <div class="also-built-card">
+        <h3><a href="https://github.com/linville-charlie/Idea-Gen-Engine" target="_blank" rel="noopener">Idea Generation Engine</a></h3>
+        <p>AI-powered market opportunity discovery engine processing 650+ RSS feeds. Clusters by similarity with TF-IDF and DBSCAN, surfaces opportunities via local 20B-parameter LLM.</p>
+      </div>
+      <div class="also-built-card">
+        <h3>Quantum Error Correction</h3>
+        <p>Neural network for detecting local and non-local errors in quantum computers. Trained on 1M+ simulation runs, achieving 95%+ detection in a 12-qubit system.</p>
+      </div>
     </div>
+
   </div>
 </section>
 
 <hr class="divider">
 
 <!-- Skills & Certifications -->
-<section class="skills">
+<section id="skills" class="skills">
   <div class="container">
     <h2 class="section-title">Skills & Certifications</h2>
 
     <div class="skill-group">
-      <h4>Languages</h4>
+      <h3>Languages</h3>
       <div class="tech-tags">
-        <span>Python</span><span>Java</span><span>Matlab</span><span>HTML/CSS</span><span>Bash/Shell</span>
+        <span>Python</span><span>SQL</span><span>Java</span><span>Matlab</span><span>HTML/CSS</span><span>Bash/Shell</span>
       </div>
     </div>
 
     <div class="skill-group">
-      <h4>Technologies</h4>
+      <h3>Technologies</h3>
       <div class="tech-tags">
-        <span>AWS</span><span>Agentic AI</span><span>Model Context Protocol</span><span>PyTorch</span><span>OpenCV</span><span>Docker</span><span>React Native/Expo</span><span>Qiskit</span><span>Cisco Networking</span><span>Linux/Unix</span><span>DynamoDB</span><span>SQL</span><span>Supabase</span><span>Claude API</span><span>OpenAI API</span><span>LangChain</span><span>Ollama</span>
+        <span>AWS</span><span>Azure</span><span>GCP</span><span>Agentic AI</span><span>Model Context Protocol</span><span>LangChain</span><span>Strands</span><span>Local LLM Inference</span><span>PyTorch</span><span>NumPy</span><span>OpenCV</span><span>Docker</span><span>Git</span><span>React Native/Expo</span><span>Qiskit</span><span>Cisco Networking</span><span>Linux/Unix</span><span>DynamoDB</span><span>Supabase</span><span>Claude API</span><span>OpenAI API</span><span>Ollama</span>
       </div>
     </div>
 
     <div class="skill-group">
-      <h4>Skills</h4>
+      <h3>Skills</h3>
       <div class="tech-tags">
         <span>Systems Architecture</span><span>Prompt Engineering</span><span>AI-Assisted Development</span><span>Technical Writing</span><span>CI/CD</span><span>Penetration Testing</span><span>Leadership</span><span>Agile</span>
       </div>
     </div>
 
     <div class="skill-group">
-      <h4>Certifications & Workshops</h4>
+      <h3>Certifications & Workshops</h3>
       <div class="tech-tags accent">
         <span>AWS Braket Badge</span><span>Foundational Matlab</span><span>Qiskit Global Summer School</span><span>UCLA 2025 Quantum Device Workshop</span>
       </div>
@@ -322,7 +444,7 @@
   <div class="container">
     <h2 class="section-title">Misc</h2>
     <ul class="interests-list">
-      <li>&#9749; Specialty coffee — always dialing in the next shot</li>
+      <li>&#9749; Coffee roasting — building the software I wanted for my own roaster</li>
       <li>&#9883; Quantum computing — from Qiskit summer schools to Rydberg simulations</li>
       <li>&#129302; AI systems — building agents, RAG, memory systems, running local models, prompt engineering</li>
       <li>&#127937; F1 racing — the intersection of engineering and competition</li>
@@ -332,24 +454,29 @@
 </section>
 
 <!-- Substack -->
-<section class="substack">
+<section id="writing" class="substack">
   <div class="container">
     <h2 class="section-title">Writing</h2>
     <div class="substack-embed">
-      <iframe src="https://clinville.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://clinville.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no" loading="lazy" title="Charlie Linville's Substack newsletter"></iframe>
     </div>
+    <p class="substack-fallback">Read more on <a href="https://clinville.substack.com/" target="_blank" rel="noopener">my Substack</a></p>
   </div>
 </section>
 
 <hr class="divider">
 
+</main>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p>Charlie Linville &middot; Denver, CO &middot; <a href="https://linkedin.com/in/charlie-linville" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/linville-charlie" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a> &middot; <a href="mailto:charlie@benlaura.com">Email</a></p>
+    <address>
+      Charlie Linville &middot; Denver, CO &middot; <a href="https://linkedin.com/in/charlie-linville" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/linville-charlie" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a> &middot; <a href="mailto:charlie@benlaura.com">Email</a>
+    </address>
   </div>
 </footer>
 
-<script src="timeline.js"></script>
+<script src="timeline.js" defer></script>
 </body>
 </html>

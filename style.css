@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/* === Fonts === */
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/press-start-2p.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/vt323.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* === Reset & Base === */
 *, *::before, *::after {
@@ -75,13 +92,94 @@ body::after {
 }
 
 a {
-  color: #4c782c;
+  color: #3e6524;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a:hover {
   color: #2d5a0f;
+}
+
+/* === Sticky Nav === */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background: rgba(212, 228, 188, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 3px solid #6b8f3c;
+  box-shadow: 0 4px 0 rgba(45, 58, 30, 0.15);
+  image-rendering: pixelated;
+}
+
+.site-nav.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: #d4e4bc;
+  background: #6b8f3c;
+  border: 3px solid #2d3a1e;
+  border-radius: 2px;
+  padding: 6px 10px;
+  box-shadow: 3px 3px 0 #2d3a1e;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.nav-logo:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #2d3a1e;
+  color: #d4e4bc;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-links a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  color: #4c6630;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover {
+  color: #2d3a1e;
+  background: rgba(107, 143, 60, 0.15);
+  border-color: #8baf5c;
+}
+
+.nav-links a.active {
+  color: #2d3a1e;
+  background: #c5d9a8;
+  border-color: #6b8f3c;
+  box-shadow: 2px 2px 0 #3d5225;
 }
 
 /* === Scroll Indicator === */
@@ -91,7 +189,7 @@ a:hover {
   left: 0;
   height: 4px;
   width: 0%;
-  background: linear-gradient(90deg, #6b8f3c, #4c782c, #8b6914, #c9a84c);
+  background: linear-gradient(90deg, #6b8f3c, #3e6524, #6e5310, #c9a84c);
   z-index: 1000;
   transition: width 0.05s linear;
   image-rendering: pixelated;
@@ -107,7 +205,7 @@ a:hover {
     90deg,
     #6b8f3c 0px, #6b8f3c 8px,
     #8baf5c 8px, #8baf5c 16px,
-    #4c782c 16px, #4c782c 24px,
+    #3e6524 16px, #3e6524 24px,
     transparent 24px, transparent 32px
   );
   image-rendering: pixelated;
@@ -134,7 +232,7 @@ a:hover {
   width: 120px;
   height: 120px;
   border-radius: 4px;
-  background: #6b8f3c;
+  background: #3d5225;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,21 +265,21 @@ a:hover {
 }
 
 .social-links a {
-  color: #4c782c;
+  color: #3e6524;
   transition: color 0.2s, transform 0.15s;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 3px solid #4c782c;
+  border: 3px solid #3e6524;
   border-radius: 2px;
   box-shadow: 3px 3px 0 #2d3a1e;
 }
 
 .social-links a:hover {
   color: #d4e4bc;
-  background: #4c782c;
+  background: #3e6524;
   transform: translate(1px, 1px);
   box-shadow: 2px 2px 0 #2d3a1e;
 }
@@ -253,7 +351,7 @@ a:hover {
     to bottom,
     #6b8f3c 0px, #6b8f3c 12px,
     #8baf5c 12px, #8baf5c 16px,
-    #4c782c 16px, #4c782c 24px
+    #3e6524 16px, #3e6524 24px
   );
   transform: translateX(-50%);
   z-index: 1;
@@ -267,7 +365,7 @@ a:hover {
   width: 6px;
   height: 0%;
   transform: translateX(-50%);
-  background: linear-gradient(to bottom, #c9a84c, #8b6914, #6b8f3c);
+  background: linear-gradient(to bottom, #c9a84c, #6e5310, #6b8f3c);
   z-index: 2;
   image-rendering: pixelated;
   box-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
@@ -275,7 +373,7 @@ a:hover {
 
 /* Era Colors */
 .era-highschool {
-  --era-color: #4c782c;
+  --era-color: #3e6524;
   --era-glow: rgba(76, 120, 44, 0.4);
   --era-bg: #c5d9a8;
 }
@@ -287,7 +385,7 @@ a:hover {
 }
 
 .era-career {
-  --era-color: #8b6914;
+  --era-color: #6e5310;
   --era-glow: rgba(139, 105, 20, 0.4);
   --era-bg: #e8dcc0;
 }
@@ -348,7 +446,7 @@ a:hover {
   width: 14px;
   height: 14px;
   background: #c5d9a8;
-  border: 3px solid #4c782c;
+  border: 3px solid #3e6524;
   transform: rotate(45deg);
   transition: all 0.4s ease;
   z-index: 2;
@@ -383,7 +481,7 @@ a:hover {
 /* Timeline Card — RPG dialog box style */
 .timeline-card {
   background: #eef5e0;
-  border: 3px solid #4c782c;
+  border: 3px solid #3e6524;
   border-radius: 2px;
   padding: 20px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -393,7 +491,7 @@ a:hover {
 }
 
 .timeline-entry.in-view .timeline-card {
-  border-color: var(--era-color, #4c782c);
+  border-color: var(--era-color, #3e6524);
 }
 
 .timeline-card::before {
@@ -440,9 +538,9 @@ a:hover {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.45rem;
   line-height: 1.6;
-  color: #8b6914;
+  color: #6e5310;
   margin-top: 12px;
-  box-shadow: 3px 3px 0 #8b6914;
+  box-shadow: 3px 3px 0 #6e5310;
   opacity: 0;
   transform: scale(0.5);
 }
@@ -563,7 +661,7 @@ a:hover {
 .project-year {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.5rem;
-  color: #8b6914;
+  color: #6e5310;
   letter-spacing: 0.05em;
 }
 
@@ -589,14 +687,79 @@ a:hover {
   font-size: 0.4rem;
   line-height: 1.6;
   background: #c5d9a8;
-  color: #4c782c;
+  color: #2d4518;
   border: 2px solid #6b8f3c;
 }
 
 .tech-tags.accent span {
   background: #f5ecd0;
-  color: #8b6914;
+  color: #6e5310;
   border-color: #c9a84c;
+}
+
+/* === Also Built === */
+.subsection-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  color: #4c6630;
+  margin: 36px 0 20px;
+  letter-spacing: 0.02em;
+}
+
+.subsection-title::before {
+  content: '> ';
+  color: #6b8f3c;
+}
+
+.also-built-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.also-built-card {
+  background: #eef5e0;
+  border: 2px solid #6b8f3c;
+  border-radius: 2px;
+  padding: 16px;
+  box-shadow: 3px 3px 0 #3d5225;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.also-built-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #3d5225;
+}
+
+.also-built-card h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  line-height: 1.8;
+  color: #2d3a1e;
+  margin-bottom: 6px;
+}
+
+.also-built-card h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.also-built-card h3 a:hover {
+  border-bottom-color: #6b8f3c;
+}
+
+.also-built-card p {
+  font-size: 0.95rem;
+  color: #3d5225;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .also-built-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* === Skills === */
@@ -610,10 +773,10 @@ a:hover {
   margin-bottom: 24px;
 }
 
-.skill-group h4 {
+.skill-group h3 {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.5rem;
-  color: #4c782c;
+  color: #3e6524;
   margin-bottom: 12px;
   letter-spacing: 0.05em;
 }
@@ -674,6 +837,17 @@ a:hover {
   max-width: 100%;
 }
 
+.substack-fallback {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #4c6630;
+}
+
+.substack-fallback a {
+  border-bottom: 2px solid #6b8f3c;
+}
+
 /* === Footer === */
 .footer {
   padding: 40px 0 50px;
@@ -682,13 +856,14 @@ a:hover {
   z-index: 1;
 }
 
-.footer p {
+.footer address {
+  font-style: normal;
   font-size: 0.95rem;
   color: #4c6630;
 }
 
 .footer a {
-  color: #4c782c;
+  color: #3e6524;
   border-bottom: 2px solid #6b8f3c;
 }
 
@@ -788,6 +963,16 @@ a:hover {
   .section-title {
     font-size: 0.75rem;
   }
+
+  .nav-links a {
+    font-size: 0.38rem;
+    padding: 5px 8px;
+  }
+
+  .nav-logo {
+    font-size: 0.6rem;
+    padding: 5px 8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -809,6 +994,19 @@ a:hover {
 
   .project-card {
     padding: 18px;
+  }
+
+  .nav-links a {
+    font-size: 0.32rem;
+    padding: 4px 5px;
+  }
+
+  .nav-links {
+    gap: 3px;
+  }
+
+  .nav-inner {
+    padding: 6px 12px;
   }
 }
 

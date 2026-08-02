@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#d4e4bc"/>
+
+  <!-- Pixel grid overlay -->
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(76,120,44,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative pixel border -->
+  <rect x="16" y="16" width="1168" height="598" rx="2" fill="none" stroke="#6b8f3c" stroke-width="4" stroke-dasharray="12,4"/>
+  <rect x="24" y="24" width="1152" height="582" rx="2" fill="none" stroke="#4c782c" stroke-width="3"/>
+
+  <!-- CL Badge -->
+  <rect x="460" y="120" width="280" height="280" rx="4" fill="#6b8f3c" stroke="#2d3a1e" stroke-width="6"/>
+  <rect x="466" y="126" width="268" height="268" rx="2" fill="none" stroke="rgba(212,228,188,0.2)" stroke-width="2"/>
+  <!-- Inner shadow effect -->
+  <rect x="472" y="132" width="256" height="256" rx="2" fill="rgba(45,58,30,0.1)"/>
+  <rect x="460" y="120" width="280" height="280" rx="4" fill="none" stroke="#2d3a1e" stroke-width="6"/>
+  <!-- CL Text -->
+  <text x="600" y="295" text-anchor="middle" font-family="'Courier New', monospace" font-weight="bold" font-size="140" fill="#d4e4bc" letter-spacing="-4">CL</text>
+
+  <!-- Pixel shadow under badge -->
+  <rect x="468" y="408" width="280" height="8" rx="1" fill="rgba(45,58,30,0.15)"/>
+
+  <!-- Name -->
+  <text x="600" y="470" text-anchor="middle" font-family="'Courier New', monospace" font-weight="bold" font-size="48" fill="#2d3a1e" letter-spacing="2">CHARLIE LINVILLE</text>
+
+  <!-- Tagline -->
+  <text x="600" y="520" text-anchor="middle" font-family="'Courier New', monospace" font-size="28" fill="#4c6630">Founder. Builder. AI &amp; Quantitative Systems.</text>
+
+  <!-- URL -->
+  <text x="600" y="575" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" fill="#6b8f3c" letter-spacing="3">charlielinville.me</text>
+
+  <!-- Corner pixel decorations -->
+  <rect x="40" y="40" width="8" height="8" fill="#6b8f3c"/>
+  <rect x="52" y="40" width="8" height="8" fill="#8baf5c"/>
+  <rect x="40" y="52" width="8" height="8" fill="#4c782c"/>
+
+  <rect x="1152" y="40" width="8" height="8" fill="#6b8f3c"/>
+  <rect x="1140" y="40" width="8" height="8" fill="#8baf5c"/>
+  <rect x="1152" y="52" width="8" height="8" fill="#4c782c"/>
+
+  <rect x="40" y="582" width="8" height="8" fill="#6b8f3c"/>
+  <rect x="52" y="582" width="8" height="8" fill="#8baf5c"/>
+  <rect x="40" y="570" width="8" height="8" fill="#4c782c"/>
+
+  <rect x="1152" y="582" width="8" height="8" fill="#6b8f3c"/>
+  <rect x="1140" y="582" width="8" height="8" fill="#8baf5c"/>
+  <rect x="1152" y="570" width="8" height="8" fill="#4c782c"/>
+
+  <!-- Decorative pixel diamonds (matching timeline nodes) -->
+  <g transform="translate(120,315) rotate(45)" fill="none" stroke="#c9a84c" stroke-width="3">
+    <rect width="16" height="16"/>
+  </g>
+  <g transform="translate(1080,315) rotate(45)" fill="none" stroke="#c9a84c" stroke-width="3">
+    <rect width="16" height="16"/>
+  </g>
+</svg>

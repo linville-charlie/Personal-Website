@@ -51,59 +51,61 @@
   function updateOnScroll() {
     ticking = false;
 
+    // --- BATCH ALL READS ---
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const viewportHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight - viewportHeight;
 
-    // Scroll indicator (top bar)
-    if (docHeight > 0) {
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      scrollIndicator.style.width = scrollPercent + '%';
-    }
-
-    // Timeline progress fill
+    let wrapperRect = null;
     if (timelineWrapper) {
-      const wrapperRect = timelineWrapper.getBoundingClientRect();
-      const wrapperTop = wrapperRect.top + scrollTop;
-      const wrapperHeight = wrapperRect.height;
-      const viewCenter = scrollTop + window.innerHeight * 0.5;
-      const progress = (viewCenter - wrapperTop) / wrapperHeight;
-      const clampedProgress = Math.max(0, Math.min(1, progress));
-      progressFill.style.height = (clampedProgress * 100) + '%';
+      wrapperRect = timelineWrapper.getBoundingClientRect();
     }
 
-    // Year indicator
-    if (timelineSection && yearIndicator) {
-      const sectionRect = timelineSection.getBoundingClientRect();
-      const inTimeline = sectionRect.top < window.innerHeight * 0.6 &&
-                         sectionRect.bottom > window.innerHeight * 0.4;
+    let sectionRect = null;
+    if (timelineSection) {
+      sectionRect = timelineSection.getBoundingClientRect();
+    }
 
+    let closestEntry = null;
+    let closestDist = Infinity;
+    const inTimeline = sectionRect &&
+      sectionRect.top < viewportHeight * 0.6 &&
+      sectionRect.bottom > viewportHeight * 0.4;
+
+    if (inTimeline) {
+      entries.forEach(entry => {
+        const rect = entry.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(center - viewportHeight / 2);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestEntry = entry;
+        }
+      });
+    }
+
+    // --- BATCH ALL WRITES ---
+    if (docHeight > 0) {
+      scrollIndicator.style.width = ((scrollTop / docHeight) * 100) + '%';
+    }
+
+    if (wrapperRect) {
+      const viewCenter = scrollTop + viewportHeight * 0.5;
+      const progress = (viewCenter - (wrapperRect.top + scrollTop)) / wrapperRect.height;
+      progressFill.style.height = (Math.max(0, Math.min(1, progress)) * 100) + '%';
+    }
+
+    if (yearIndicator) {
       if (inTimeline) {
         yearIndicator.classList.add('visible');
-
-        // Find closest entry to viewport center
-        let closestEntry = null;
-        let closestDist = Infinity;
-        entries.forEach(entry => {
-          const rect = entry.getBoundingClientRect();
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closestEntry = entry;
-          }
-        });
-
         if (closestEntry) {
-          const year = closestEntry.dataset.year;
-          yearIndicator.textContent = year;
-
-          // Update color based on era
+          yearIndicator.textContent = closestEntry.dataset.year;
           const eraClass = [...closestEntry.classList].find(c => c.startsWith('era-'));
           if (eraClass) {
             const colors = {
-              'era-highschool': '#4c782c',
+              'era-highschool': '#3e6524',
               'era-college': '#6b8f3c',
-              'era-career': '#8b6914',
+              'era-career': '#6e5310',
               'era-current': '#c9a84c'
             };
             yearIndicator.style.color = colors[eraClass] || '#667eea';
@@ -115,6 +117,37 @@
     }
   }
 
+  // Sticky nav — show after scrolling past header, highlight active section
+  const siteNav = document.querySelector('.site-nav');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateNav() {
+    const scrollTop = window.scrollY;
+
+    // Show/hide nav
+    if (scrollTop > 300) {
+      siteNav.classList.add('visible');
+    } else {
+      siteNav.classList.remove('visible');
+    }
+
+    // Active section highlight
+    let currentId = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 120;
+      if (scrollTop >= top) {
+        currentId = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+    });
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', updateNav, { passive: true });
   updateOnScroll(); // Initial call
+  updateNav();
 })();
