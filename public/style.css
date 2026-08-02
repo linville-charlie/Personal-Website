@@ -1046,3 +1046,208 @@ a:hover {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   Multi-page additions (Astro migration)
+   ============================================================ */
+
+/* Sticky nav stays put on subpages — timeline.js only toggles
+   `.visible` on the homepage, so this overrides it. */
+.site-nav.always-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.page-section {
+  padding: 100px 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2d3a1e;
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 0 rgba(107, 143, 60, 0.35);
+}
+
+.page-intro {
+  font-size: 1.15rem;
+  color: #4c6630;
+  margin-bottom: 28px;
+  max-width: 680px;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  color: #4c6630;
+  margin-bottom: 18px;
+}
+
+.breadcrumb span {
+  color: #8baf5c;
+  margin: 0 4px;
+}
+
+/* --- Long-form prose --- */
+.prose {
+  max-width: 720px;
+}
+
+.prose > p {
+  font-size: 1.12rem;
+  color: #3d5225;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.prose .lede {
+  font-size: 1.28rem;
+  color: #2d4518;
+  background: #c5d9a8;
+  border: 3px solid #6b8f3c;
+  border-radius: 2px;
+  padding: 18px 20px;
+  box-shadow: 4px 4px 0 #4c6630;
+  margin-bottom: 28px;
+}
+
+.prose h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  line-height: 1.9;
+  color: #3e6524;
+  margin: 34px 0 14px;
+}
+
+.prose h2::before {
+  content: '> ';
+  color: #6b8f3c;
+}
+
+.prose h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.58rem;
+  line-height: 1.9;
+  color: #4c6630;
+  margin: 24px 0 10px;
+}
+
+.prose strong { color: #2d4518; }
+
+.prose a {
+  border-bottom: 2px solid #6b8f3c;
+}
+
+.prose ul, .prose ol {
+  margin: 0 0 18px 24px;
+  font-size: 1.1rem;
+  color: #3d5225;
+}
+
+.prose li { margin-bottom: 8px; line-height: 1.6; }
+
+.prose blockquote {
+  border-left: 4px solid #6b8f3c;
+  background: #eef5e0;
+  padding: 12px 18px;
+  margin: 0 0 18px;
+  color: #3d5225;
+}
+
+.prose code {
+  font-family: 'VT323', monospace;
+  background: #c5d9a8;
+  border: 2px solid #8baf5c;
+  border-radius: 2px;
+  padding: 1px 6px;
+  font-size: 1rem;
+  color: #2d4518;
+}
+
+.prose pre {
+  background: #2d3a1e;
+  border: 3px solid #3e6524;
+  border-radius: 2px;
+  padding: 16px;
+  overflow-x: auto;
+  margin-bottom: 18px;
+  box-shadow: 4px 4px 0 #3d5225;
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #d4e4bc;
+  font-size: 1rem;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #6b8f3c;
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #3d5225;
+}
+
+/* --- FAQ --- */
+.faq {
+  background: #eef5e0;
+  border: 3px solid #6b8f3c;
+  border-radius: 2px;
+  padding: 20px 24px;
+  box-shadow: 4px 4px 0 #3d5225;
+  margin-bottom: 20px;
+}
+
+.faq dt {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.52rem;
+  line-height: 1.9;
+  color: #2d3a1e;
+  margin-top: 16px;
+}
+
+.faq dt:first-child { margin-top: 0; }
+
+.faq dd {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  color: #3d5225;
+  line-height: 1.55;
+}
+
+/* --- Small link rows --- */
+.section-more {
+  margin-top: 28px;
+  font-size: 1.1rem;
+}
+
+.section-more a,
+.project-links a {
+  border-bottom: 2px solid #6b8f3c;
+}
+
+.project-links {
+  margin-top: 24px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+
+.meta-note {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #4c6630;
+  border-top: 2px dashed rgba(107, 143, 60, 0.35);
+  padding-top: 14px;
+}
+
+@media (max-width: 768px) {
+  .page-section { padding-top: 84px; }
+  .page-title { font-size: 0.82rem; }
+}
