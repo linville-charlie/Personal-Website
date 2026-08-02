@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import TechTags from '../../components/TechTags.astro';
+import { getCollection } from 'astro:content';
+import { SITE, PERSON_ID } from '../../consts';
+
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${SITE.url}/projects#page`,
+    name: 'Projects by Charlie Linville',
+    url: `${SITE.url}/projects`,
+    about: { '@id': PERSON_ID },
+    hasPart: all.map((p) => ({
+      '@type': 'SoftwareSourceCode',
+      name: p.data.title,
+      url: `${SITE.url}/projects/${p.id}`,
+      abstract: p.data.description.slice(0, 200),
+    })),
+  },
+];
+---
+
+<Base
+  path="/projects"
+  title="Projects — Charlie Linville"
+  description="AI agents, quantitative trading systems, security tooling, and quantum simulations built by Charlie Linville."
+  schema={schema}
+>
+  <section class="projects page-section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="page-intro">
+        Things I've designed, built, and shipped — AI agents, quantitative systems,
+        security tooling, and quantum simulations.
+      </p>
+
+      {all.map((p) => (
+        <div class="project-card">
+          <h3><a href={`/projects/${p.id}`}>{p.data.title}</a></h3>
+          <span class="project-year">{p.data.year}</span>
+          <p>{p.data.description}</p>
+          <TechTags tags={p.data.tags} />
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

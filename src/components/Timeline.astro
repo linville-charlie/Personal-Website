@@ -1,0 +1,49 @@
+---
+import { TIMELINE } from '../data/site';
+
+const PARTICLES = [
+  'top:8%;left:8%;animation-delay:0s;animation-duration:22s;',
+  'top:25%;right:6%;animation-delay:-5s;animation-duration:18s;',
+  'top:50%;left:12%;animation-delay:-10s;animation-duration:25s;',
+  'top:70%;right:10%;animation-delay:-3s;animation-duration:20s;',
+  'top:90%;left:5%;animation-delay:-8s;animation-duration:23s;',
+];
+---
+<section id="journey" class="timeline-section">
+  <div class="container">
+    <h2 class="section-title">Journey</h2>
+  </div>
+
+  <div class="timeline-wrapper">
+    <div class="timeline-spine"></div>
+    <div class="timeline-progress-fill"></div>
+
+    {PARTICLES.map((s) => <div class="particle" style={s}></div>)}
+
+    <div class="timeline-entries">
+      {TIMELINE.map((e) => (
+        <div class={`timeline-entry ${e.era}`} data-year={e.year}>
+          <div class="timeline-node">
+            <div class="node-ring"></div>
+            <div class="node-dot"></div>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-date">{e.date}</span>
+            <h3>
+              {e.href
+                ? <a href={e.href} target="_blank" rel="noopener">{e.role}</a>
+                : e.role}
+            </h3>
+            <p>{e.body}</p>
+            {e.badgeLabel && (
+              <div class="achievement-badge">
+                <span class="badge-icon">{e.badgeIcon}</span>
+                <span class="badge-label">{e.badgeLabel}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

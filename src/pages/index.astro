@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import Socials from '../components/Socials.astro';
+import Timeline from '../components/Timeline.astro';
+import TechTags from '../components/TechTags.astro';
+import { getCollection } from 'astro:content';
+import { EDUCATION, SKILLS, INTERESTS, BIO, TAGLINE } from '../data/site';
+import { SITE } from '../consts';
+
+const all = await getCollection('projects');
+const featured = all.filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
+const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base path="/" navHiddenUntilScroll={true}>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="profile-photo">
+          <div class="photo-placeholder">CL</div>
+        </div>
+        <div class="header-text">
+          <h1>Charlie Linville</h1>
+          <p class="tagline">{TAGLINE}</p>
+          <Socials />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="bio">
+    <div class="container">
+      <p>{BIO}</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <Timeline />
+
+  <hr class="divider" />
+
+  <section id="education" class="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      {EDUCATION.map((e) => (
+        <div class="project-card">
+          <h3>{e.title}</h3>
+          <span class="project-year">{e.year}</span>
+          <p>{e.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      {featured.map((p) => (
+        <div class="project-card">
+          <h3><a href={`/projects/${p.id}`}>{p.data.title}</a></h3>
+          <span class="project-year">{p.data.year}</span>
+          <p>{p.data.description}</p>
+          <TechTags tags={p.data.tags} />
+        </div>
+      ))}
+
+      <h3 class="subsection-title">Also Built</h3>
+
+      <div class="also-built-grid">
+        {also.map((p) => (
+          <div class="also-built-card">
+            <h3><a href={`/projects/${p.id}`}>{p.data.title}</a></h3>
+            <p>{p.data.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="section-more"><a href="/projects">All projects &rarr;</a></p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills &amp; Certifications</h2>
+      {SKILLS.map((g) => (
+        <div class="skill-group">
+          <h3>{g.name}</h3>
+          <TechTags tags={g.items} accent={g.accent} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="interests">
+    <div class="container">
+      <h2 class="section-title">Misc</h2>
+      <ul class="interests-list">
+        {INTERESTS.map((i) => <li>{i}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="writing" class="substack">
+    <div class="container">
+      <h2 class="section-title">Writing</h2>
+      <p class="substack-fallback">
+        I write about AI systems, quantitative modelling, and what I learn shipping them.
+        Read the <a href="/blog">latest posts</a> or subscribe
+        on <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a>.
+      </p>
+      <div class="substack-embed">
+        <iframe
+          src="https://clinville.substack.com/embed"
+          width="480"
+          height="320"
+          style="border: 1px solid #EEE; background: white"
+          frameborder="0"
+          scrolling="no"
+          loading="lazy"
+          title="Charlie Linville's Substack newsletter"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <div class="year-indicator"></div>
+</Base>

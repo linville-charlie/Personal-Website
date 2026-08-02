@@ -1,0 +1,21 @@
+{
+  "name": "charlielinville-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal site of Charlie Linville \u2014 charlielinville.me",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.1.6"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

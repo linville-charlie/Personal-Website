@@ -1,0 +1,111 @@
+---
+import { SITE, NAV, PERSON, PERSON_ID } from '../consts';
+// Imported (not linked from public/) so Astro fingerprints the filename —
+// that is what makes the long immutable cache header safe.
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Path only, e.g. "/about". Canonical is built from SITE.url. */
+  path: string;
+  /** Extra JSON-LD nodes merged into the @graph for this page. */
+  schema?: Record<string, unknown>[];
+  /** Hide the sticky nav until scrolled (homepage behaviour). */
+  navHiddenUntilScroll?: boolean;
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  path,
+  schema = [],
+  navHiddenUntilScroll = false,
+} = Astro.props;
+
+const canonical = `${SITE.url}${path === '/' ? '/' : path}`;
+const ogImage = `${SITE.url}${SITE.ogImage}`;
+
+const graph = [
+  { '@type': 'WebSite', '@id': `${SITE.url}/#website`, name: SITE.name, url: SITE.url },
+  PERSON,
+  ...schema,
+];
+
+const currentPath = path;
+---
+
+<!DOCTYPE html>
+<html lang={SITE.lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content={SITE.name} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:locale" content={SITE.locale} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CharlieLinvill2" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Structured Data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}
+  />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/press-start-2p.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/vt323.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+
+<div class="scroll-indicator"></div>
+
+<nav class={`site-nav${navHiddenUntilScroll ? '' : ' visible always-visible'}`} aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Home">CL</a>
+    <div class="nav-links">
+      {NAV.filter((l) => l.href !== '/').map((l) => (
+        <a href={l.href} class={currentPath.startsWith(l.href) ? 'active' : undefined}>{l.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<main>
+  <slot />
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <address>
+      Charlie Linville &middot; Denver, CO &middot; <a href="https://linkedin.com/in/charlie-linville" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/linville-charlie" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a> &middot; <a href={`mailto:${SITE.email}`}>Email</a>
+    </address>
+  </div>
+</footer>
+
+<script>
+  import '../scripts/timeline.js';
+</script>
+
+<!-- Vercel Web Analytics -->
+<script is:inline>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script is:inline defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
