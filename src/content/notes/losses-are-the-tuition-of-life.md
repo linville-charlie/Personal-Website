@@ -1,4 +1,4 @@
 ---
 title: "Losses are the tuition of life"
-pubDate: 2026-10-23
+pubDate: 2026-10-02
 ---
