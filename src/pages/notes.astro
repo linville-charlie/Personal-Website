@@ -54,9 +54,9 @@ const schema = [{
               <input id="notes-search" type="search" placeholder="Search notes" autocomplete="off" />
             </label>
             <label hidden={topics.length === 0}>
-              Topic
+              Category
               <select id="notes-topic">
-                <option value="">All topics</option>
+                <option value="">All categories</option>
                 {topics.map((topic) => <option value={topic}>{topic}</option>)}
               </select>
             </label>
@@ -107,7 +107,7 @@ const schema = [{
                   <div class="tech-tags">
                     {note.data.tags.map((tag) => <span>{tag}</span>)}
                   </div>
-                  <a class="note-permalink" href={`/notes#${note.id}`} aria-label={`Link to note: ${note.data.title}`}>#</a>
+                  <a class="note-open-link" href={`/notes#${note.id}`} aria-label={`Open note: ${note.data.title}`}>View note &nearr;</a>
                 </div>
               </article>
             ))}
@@ -123,6 +123,18 @@ const schema = [{
       )}
     </div>
   </section>
+  <dialog class="note-dialog" id="note-dialog" aria-labelledby="note-dialog-title">
+    <div class="note-dialog-shell">
+      <div class="note-dialog-top">
+        <span>Note</span>
+        <button type="button" id="note-dialog-close" aria-label="Close note">&times;</button>
+      </div>
+      <div id="note-dialog-content"></div>
+      <div class="note-dialog-actions">
+        <button type="button" id="note-copy-link">Copy note link</button>
+      </div>
+    </div>
+  </dialog>
   <script>
     import '../scripts/notes.js';
   </script>

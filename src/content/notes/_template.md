@@ -6,6 +6,7 @@ pubDate: 2026-10-23
 tags:
   - "AI Systems"
 # For a quote, add: kind: quote
+# Other kinds: thought (default), question, idea
 # attribution: "Person's name"
 # source: "Book or work title"
 # essay: "/blog/the-longer-version"
