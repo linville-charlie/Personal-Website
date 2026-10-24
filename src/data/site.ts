@@ -170,11 +170,11 @@ export const SKILLS = [
 ];
 
 export const INTERESTS = [
-  "☕ Coffee roasting — building the software I wanted for my own roaster",
-  "⚛ Quantum computing — from Qiskit summer schools to Rydberg simulations",
-  "🤖 AI systems — building agents, RAG, memory systems, running local models, prompt engineering",
-  "🏁 F1 racing — the intersection of engineering and competition",
-  "💪 Longevity training — optimizing for the long game"
+  "Coffee roasting",
+  "Traveling",
+  "Reading",
+  "Fitness",
+  "F1 racing"
 ];
 
 export const HOME_QUOTE = 'If you’re not failing, you’re not pushing your limits, and if you’re not pushing your limits, you’re not maximizing your potential';

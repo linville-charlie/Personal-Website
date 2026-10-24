@@ -850,14 +850,6 @@ a:hover {
   image-rendering: auto;
 }
 
-.travel-photo figcaption {
-  margin: 10px 4px 2px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
-  line-height: 1.6;
-  color: #4c6630;
-}
-
 .interests-list li {
   padding: 8px 0;
   font-size: 1.1rem;
