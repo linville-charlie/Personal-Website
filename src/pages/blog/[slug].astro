@@ -12,6 +12,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 const path = `/blog/${post.id}`;
+const relatedNotes = await getCollection('notes', ({ data }) => !data.draft && data.essay === path);
 
 const fmt = (x: Date) =>
   x.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
@@ -58,6 +59,15 @@ const schema = [
       <div class="prose">
         <Content />
       </div>
+
+      {relatedNotes.length > 0 && (
+        <aside class="note-origin">
+          <p>Started as {relatedNotes.length === 1 ? 'a note' : 'notes'} on the wall:</p>
+          <ul>{relatedNotes.map((note) => (
+            <li><a href={`/notes#${note.id}`}>{note.data.title}</a></li>
+          ))}</ul>
+        </aside>
+      )}
 
       {(d.substackUrl || d.xUrl) && (
         <p class="project-links">

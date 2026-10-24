@@ -1,5 +1,5 @@
 ---
-import { SITE, NAV, PERSON, PERSON_ID } from '../consts';
+import { SITE, NAV, PERSON } from '../consts';
 // Imported (not linked from public/) so Astro fingerprints the filename —
 // that is what makes the long immutable cache header safe.
 import '../styles/global.css';
@@ -7,7 +7,7 @@ import '../styles/global.css';
 export interface Props {
   title?: string;
   description?: string;
-  /** Path only, e.g. "/about". Canonical is built from SITE.url. */
+  /** Path only, e.g. "/notes". Canonical is built from SITE.url. */
   path: string;
   /** Extra JSON-LD nodes merged into the @graph for this page. */
   schema?: Record<string, unknown>[];
@@ -75,12 +75,16 @@ const currentPath = path;
 
 <div class="scroll-indicator"></div>
 
-<nav class={`site-nav${navHiddenUntilScroll ? '' : ' visible always-visible'}`} aria-label="Main navigation">
+<nav class={`site-nav${navHiddenUntilScroll ? '' : ' visible always-visible'}`} aria-label="Main navigation" aria-hidden={navHiddenUntilScroll ? 'true' : undefined} inert={navHiddenUntilScroll}>
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Home">CL</a>
     <div class="nav-links">
-      {NAV.filter((l) => l.href !== '/').map((l) => (
-        <a href={l.href} class={currentPath.startsWith(l.href) ? 'active' : undefined}>{l.label}</a>
+      {NAV.map((l) => (
+        <a
+          href={l.href}
+          class={(l.href === '/' ? currentPath === '/' : currentPath.startsWith(l.href)) ? 'active' : undefined}
+          aria-current={(l.href === '/' ? currentPath === '/' : currentPath.startsWith(l.href)) ? 'page' : undefined}
+        >{l.label}</a>
       ))}
     </div>
   </div>

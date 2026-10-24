@@ -4,8 +4,7 @@ import Socials from '../components/Socials.astro';
 import Timeline from '../components/Timeline.astro';
 import TechTags from '../components/TechTags.astro';
 import { getCollection } from 'astro:content';
-import { EDUCATION, SKILLS, INTERESTS, BIO, TAGLINE } from '../data/site';
-import { SITE } from '../consts';
+import { EDUCATION, SKILLS, INTERESTS, HOME_QUOTE, TAGLINE } from '../data/site';
 
 const all = await getCollection('projects');
 const featured = all.filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
@@ -29,9 +28,12 @@ const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b
     </div>
   </header>
 
-  <section class="bio">
+  <section class="featured-quote">
     <div class="container">
-      <p>{BIO}</p>
+      <blockquote>
+        <p>“{HOME_QUOTE}”</p>
+        <footer>― <strong>Ray Dalio</strong>, <cite>Principles: Life and Work</cite></footer>
+      </blockquote>
     </div>
   </section>
 
@@ -114,8 +116,8 @@ const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b
       <h2 class="section-title">Writing</h2>
       <p class="substack-fallback">
         I write about AI systems, quantitative modelling, and what I learn shipping them.
-        Read the <a href="/blog">latest posts</a> or subscribe
-        on <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a>.
+        Browse <a href="/notes">short notes</a>, read the <a href="/blog">latest essays</a>,
+        or subscribe on <a href="https://clinville.substack.com/" target="_blank" rel="noopener">Substack</a>.
       </p>
       <div class="substack-embed">
         <iframe
@@ -123,8 +125,6 @@ const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b
           width="480"
           height="320"
           style="border: 1px solid #EEE; background: white"
-          frameborder="0"
-          scrolling="no"
           loading="lazy"
           title="Charlie Linville's Substack newsletter"
         ></iframe>

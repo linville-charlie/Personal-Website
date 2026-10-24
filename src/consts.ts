@@ -23,10 +23,9 @@ export const SITE = {
 
 export const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
+  { href: '/notes', label: 'Notes' },
   { href: '/projects', label: 'Projects' },
   { href: '/blog', label: 'Writing' },
-  { href: '/resume', label: 'Resume' },
 ] as const;
 
 export const SOCIALS = [
@@ -51,7 +50,7 @@ export const PERSON = {
   '@id': PERSON_ID,
   name: 'Charlie Linville',
   url: SITE.url,
-  jobTitle: 'Co-Founder & AI Engineer',
+  jobTitle: 'Founder & AI Engineer',
   description: SITE.description,
   email: SITE.email,
   address: {
@@ -65,7 +64,6 @@ export const PERSON = {
     name: 'University of Wisconsin-Madison',
   },
   worksFor: [
-    { '@type': 'Organization', name: 'Updraft Consulting' },
     { '@type': 'Organization', name: 'Guleki', url: 'https://guleki.com' },
   ],
   sameAs: [

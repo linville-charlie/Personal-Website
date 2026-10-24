@@ -99,7 +99,7 @@ The next post will have the design and the initial results for this first step a
 
 ---
 
-Dragonfly’s code, data, and experiment infrastructure: [github.com/clinville/dragonfly](https://github.com/clinville/dragonfly)
+Dragonfly’s code, data, and experiment infrastructure: [github.com/linville-charlie/Dragonfly](https://github.com/linville-charlie/Dragonfly)
 
 Prior posts: [Controlling an AI Pentesting Agent](/blog/controlling-an-ai-pentesting-agent) and [Your AI Agent’s Safety Controls Don’t Fail Under Pressure](/blog/ai-agent-safety-controls-under-pressure)
 

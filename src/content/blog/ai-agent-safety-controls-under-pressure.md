@@ -109,6 +109,6 @@ We have 440 runs of trace data showing exactly how agents route around tool-leve
 
 ---
 
-All code, data, and experiment infrastructure are available at [github.com/clinville/dragonfly](https://github.com/clinville/dragonfly). The pressure experiment protocol, runner, and analysis scripts are in bench/.
+All code, data, and experiment infrastructure are available at [github.com/linville-charlie/Dragonfly](https://github.com/linville-charlie/Dragonfly). The pressure experiment protocol, runner, and analysis scripts are in bench/.
 
 [Personal Website](http://charlielinville.me)

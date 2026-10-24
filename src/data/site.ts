@@ -10,22 +10,22 @@ export const TIMELINE: TimelineEntry[] = [
   {
     "era": "era-current",
     "year": "2026",
-    "date": "Jun 2026 — Present",
-    "role": "Co-Founder at Updraft Consulting",
-    "href": null,
-    "body": "AI consulting firm with paying clients in mortgage and healthcare staffing. Architected seven AI workflows for a mortgage brokerage, from contract date extraction to refinance targeting, and built a GLBA-aligned data-handling framework classifying client data by sensitivity and approved processing environments. Co-lead sales — scoping and pitching engagements to presidents and review committees at firms up to $1B in revenue.",
-    "badgeIcon": "⚡",
-    "badgeLabel": "34 professionals trained — 83% requested more"
-  },
-  {
-    "era": "era-current",
-    "year": "2026",
     "date": "2026 — Present",
     "role": "Founder at Guleki",
     "href": "https://guleki.com",
     "body": "App publishing company focused on AI-native mobile experiences. Our first product, Geolocate Me, gives AI assistants real-time location context through a private GPS tracker with MCP integration — live on iOS and Android.",
     "badgeIcon": null,
     "badgeLabel": null
+  },
+  {
+    "era": "era-career",
+    "year": "2026",
+    "date": "Jun 2026 — Oct 2026",
+    "role": "Technology Consultant and Partner at Updraft Consulting",
+    "href": null,
+    "body": "AI consulting firm with paying clients in mortgage and healthcare staffing. Architected seven AI workflows for a mortgage brokerage, from contract date extraction to refinance targeting, and built a GLBA-aligned data-handling framework classifying client data by sensitivity and approved processing environments. Co-led sales — scoping and pitching engagements to presidents and review committees at firms up to $1B in revenue.",
+    "badgeIcon": "⚡",
+    "badgeLabel": "34 professionals trained — 83% requested more"
   },
   {
     "era": "era-career",
@@ -177,6 +177,6 @@ export const INTERESTS = [
   "💪 Longevity training — optimizing for the long game"
 ];
 
-export const BIO = "Right now I'm building AI systems and the businesses around them — an AI consulting firm with clients in mortgage and healthcare, an app publisher shipping location-aware assistants, and software that runs a coffee roastery end to end. Co-founded a fintech startup before that and shipped its trading platform in 14 weeks. When I'm not shipping, I'm usually reading, roasting coffee, or watching F1.";
+export const HOME_QUOTE = 'If you’re not failing, you’re not pushing your limits, and if you’re not pushing your limits, you’re not maximizing your potential';
 
 export const TAGLINE = "Founder & Builder — AI & Quantitative Systems";

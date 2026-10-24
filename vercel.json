@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/about",
+      "destination": "/notes",
+      "permanent": false
+    },
+    {
+      "source": "/resume",
+      "destination": "/projects",
+      "permanent": false
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true

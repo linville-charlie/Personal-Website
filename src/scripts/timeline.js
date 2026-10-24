@@ -23,21 +23,20 @@
 
   if (prefersReducedMotion) {
     entries.forEach(entry => entry.classList.add('in-view'));
-    return;
+  } else {
+    // IntersectionObserver for card reveals
+    const revealObserver = new IntersectionObserver((observed) => {
+      observed.forEach((item, i) => {
+        if (item.isIntersecting) {
+          item.target.style.transitionDelay = (i * 0.08) + 's';
+          item.target.classList.add('in-view');
+          revealObserver.unobserve(item.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    entries.forEach(entry => revealObserver.observe(entry));
   }
-
-  // IntersectionObserver for card reveals
-  const revealObserver = new IntersectionObserver((observed) => {
-    observed.forEach((item, i) => {
-      if (item.isIntersecting) {
-        item.target.style.transitionDelay = (i * 0.08) + 's';
-        item.target.classList.add('in-view');
-        revealObserver.unobserve(item.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  entries.forEach(entry => revealObserver.observe(entry));
 
   // Scroll-driven updates
   let ticking = false;
@@ -117,33 +116,15 @@
     }
   }
 
-  // Sticky nav — show after scrolling past header, highlight active section
+  // Sticky nav on the homepage; subpage links keep their server-rendered active state.
   const siteNav = document.querySelector('.site-nav');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const sections = document.querySelectorAll('section[id]');
 
   function updateNav() {
-    const scrollTop = window.scrollY;
-
-    // Show/hide nav
-    if (scrollTop > 300) {
-      siteNav.classList.add('visible');
-    } else {
-      siteNav.classList.remove('visible');
-    }
-
-    // Active section highlight
-    let currentId = '';
-    sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      if (scrollTop >= top) {
-        currentId = section.id;
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
-    });
+    if (siteNav.classList.contains('always-visible')) return;
+    const visible = window.scrollY > 300;
+    siteNav.classList.toggle('visible', visible);
+    siteNav.inert = !visible;
+    siteNav.setAttribute('aria-hidden', String(!visible));
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
