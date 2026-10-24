@@ -75,7 +75,7 @@ const schema = [{
           <div class="notes-wall" id="notes-wall">
             {cards.map(({ note, Content, hasBody }) => (
               <article
-                class="note-card"
+                class:list={['note-card', { 'note-card-quote': note.data.kind === 'quote' }]}
                 id={note.id}
                 data-note-card
                 data-published={note.data.pubDate.toISOString()}
@@ -84,9 +84,15 @@ const schema = [{
                 data-tags={note.data.tags.join('|')}
               >
                 <div class="note-card-heading">
-                  <h2>{note.data.title}</h2>
+                  <h2>{note.data.kind === 'quote' ? `“${note.data.title}”` : note.data.title}</h2>
                   <time datetime={note.data.pubDate.toISOString().slice(0, 10)}>{fmt(note.data.pubDate)}</time>
                 </div>
+                {note.data.kind === 'quote' && (note.data.attribution || note.data.source) && (
+                  <p class="note-attribution">
+                    &mdash; {note.data.attribution}{note.data.attribution && note.data.source && ', '}
+                    {note.data.source && <cite>{note.data.source}</cite>}
+                  </p>
+                )}
                 {note.data.summary && <p class="note-preview">{note.data.summary}</p>}
                 {hasBody && (
                   <details>

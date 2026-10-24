@@ -5,6 +5,9 @@ pubDate: 2026-10-23
 # updatedDate: 2026-11-01
 tags:
   - "AI Systems"
+# For a quote, add: kind: quote
+# attribution: "Person's name"
+# source: "Book or work title"
 # essay: "/blog/the-longer-version"
 draft: true
 ---

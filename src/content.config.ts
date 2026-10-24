@@ -44,6 +44,9 @@ const notes = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
+    kind: z.enum(['thought', 'quote']).default('thought'),
+    attribution: z.string().optional(),
+    source: z.string().optional(),
     /** Optional published essay that grew from this note. */
     essay: z.string().regex(/^\/blog\/[a-z0-9-]+$/).optional(),
     draft: z.boolean().default(false),

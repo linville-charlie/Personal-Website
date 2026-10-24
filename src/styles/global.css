@@ -1477,6 +1477,9 @@ a:hover {
 }
 
 .note-card time { color: #5b603c; font-size: 0.95rem; }
+.note-card-quote h2 { font-family: 'VT323', monospace; font-size: 1.55rem; line-height: 1.15; overflow-wrap: normal; }
+.note-attribution { margin: 16px 0 0; font-size: 1.1rem; line-height: 1.3; }
+.note-attribution cite { font-style: italic; }
 .note-preview { margin-top: 16px; font-size: 1.1rem; line-height: 1.45; }
 
 .note-card details { margin-top: 18px; }
