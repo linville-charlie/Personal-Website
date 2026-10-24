@@ -226,22 +226,25 @@ a:hover {
 
 .profile-photo {
   flex-shrink: 0;
+  width: 144px;
+  height: 144px;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #2d3a1e;
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 #2d3a1e;
+  background: #3d5225;
 }
 
-.photo-placeholder {
-  width: 120px;
-  height: 120px;
-  border-radius: 4px;
-  background: #3d5225;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 1.8rem;
-  color: #d4e4bc;
-  border: 4px solid #2d3a1e;
-  box-shadow: 6px 6px 0 #2d3a1e;
-  image-rendering: pixelated;
+.profile-photo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 550%;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -42%);
+  image-rendering: auto;
 }
 
 .header-text h1 {
@@ -820,8 +823,39 @@ a:hover {
   border-radius: 2px;
   padding: 20px 24px;
   box-shadow: 4px 4px 0 #3d5225;
-  max-width: 600px;
+  min-width: 0;
+}
+
+.interests-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  align-items: start;
+  gap: 24px;
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.travel-photo {
+  padding: 8px;
+  background: #eef5e0;
+  border: 3px solid #6b8f3c;
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #3d5225;
+}
+
+.travel-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
+.travel-photo figcaption {
+  margin: 10px 4px 2px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  line-height: 1.6;
+  color: #4c6630;
 }
 
 .interests-list li {
@@ -939,10 +973,19 @@ a:hover {
     font-size: 1.1rem;
   }
 
-  .photo-placeholder {
-    width: 90px;
-    height: 90px;
-    font-size: 1.4rem;
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .interests-content {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-photo {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
   }
 
   /* Timeline mobile */

@@ -17,7 +17,13 @@ const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b
     <div class="container">
       <div class="header-content">
         <div class="profile-photo">
-          <div class="photo-placeholder">CL</div>
+          <img
+            src="/assets/charlie-mountains.jpg"
+            alt="Charlie Linville in the mountains"
+            width="1200"
+            height="900"
+            fetchpriority="high"
+          />
         </div>
         <div class="header-text">
           <h1>Charlie Linville</h1>
@@ -105,9 +111,21 @@ const also = all.filter((p) => !p.data.featured).sort((a, b) => a.data.order - b
   <section class="interests">
     <div class="container">
       <h2 class="section-title">Misc</h2>
-      <ul class="interests-list">
-        {INTERESTS.map((i) => <li>{i}</li>)}
-      </ul>
+      <div class="interests-content">
+        <ul class="interests-list">
+          {INTERESTS.map((i) => <li>{i}</li>)}
+        </ul>
+        <figure class="travel-photo">
+          <img
+            src="/assets/charlie-angkor-wat.jpg"
+            alt="Charlie at Angkor Wat"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
+          <figcaption>Angkor Wat</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
