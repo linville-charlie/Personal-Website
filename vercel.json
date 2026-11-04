@@ -14,7 +14,7 @@
     },
     {
       "source": "/about",
-      "destination": "/notes",
+      "destination": "/",
       "permanent": false
     },
     {

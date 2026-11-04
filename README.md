@@ -11,7 +11,16 @@ Personal portfolio site showcasing my journey, projects, and interests in AI sys
 
 ## Notes
 
-The public notes wall lives at `/notes`. Add one Markdown file per idea in
+The notes wall is currently hidden from the public site. Its page is preserved
+in `src/disabled-pages/notes.astro`, outside Astro’s routes, so `/notes` returns
+404 and is excluded from the sitemap. All note content, styles, and scripts
+remain in the repository.
+
+To restore it, move the page back to `src/pages/notes.astro`, restore the Notes
+entry in `NAV` and the homepage/writing links, restore the related-notes block
+in the essay template, and change the `/about` redirect back to `/notes`.
+
+Add one Markdown file per idea in
 `src/content/notes/`, using `_template.md` as a starting point. Set `draft: false`
 when it is ready to appear. `summary` is optional context for the closed card;
 the Markdown body appears when a visitor expands it. A one-line thought can
