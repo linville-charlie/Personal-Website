@@ -179,4 +179,4 @@ export const INTERESTS = [
 
 export const HOME_QUOTE = 'If you’re not failing, you’re not pushing your limits, and if you’re not pushing your limits, you’re not maximizing your potential';
 
-export const TAGLINE = "Pre-med & quantitative systems";
+export const TAGLINE = "Quantitative systems & pre-med";
