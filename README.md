@@ -29,3 +29,13 @@ grows into an essay, set `essay` to the internal path of its published post,
 such as `/blog/example-slug`. The note and essay will then link to each other.
 
 Run `npm run check` and `npm run build` before publishing.
+
+## Unlisted Dutch lesson
+
+`public/dutch-game-modeling.html` serves `/dutch-game-modeling`, with supporting
+files and the supplied PDF under `public/dutch-game-modeling/`. The lesson links
+to the PDF and back to the homepage, but the main site never links into it.
+It is excluded from the sitemap and carries HTML and HTTP noindex directives;
+this discourages indexing, but the URL and PDF are public, not access-controlled.
+
+Run `npm run check:dutch`, `npm run check`, and `npm run build` before publishing.

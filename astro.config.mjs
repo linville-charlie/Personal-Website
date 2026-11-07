@@ -12,5 +12,8 @@ export default defineConfig({
     // and no redirect hop.
     format: 'file',
   },
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    // Keep the standalone Dutch lesson and its documents out of public discovery.
+    filter: (page) => !new URL(page).pathname.startsWith('/dutch-game-modeling'),
+  })],
 });
